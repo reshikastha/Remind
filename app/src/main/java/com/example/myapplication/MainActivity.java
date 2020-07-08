@@ -9,25 +9,25 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    DatePicker pick;
-    Button displayDate;
-    TextView textview;
+    DatePicker picker;
+    Button display;
+    TextView textview1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textview=(TextView)findViewById(R.id.textView1);
-        pick=(DatePicker)findViewById(R.id.datePicker);
-        displayDate=(Button)findViewById(R.id.button1);
+        textview1=(TextView)findViewById(R.id.textView1);
+        picker=(DatePicker)findViewById(R.id.datePicker);
+        display=(Button)findViewById(R.id.button1);
 
-        textview.setText("Current Date: "+getCurrentDate());
+        textview1.setText("Current Date: "+getCurrentDate());
 
-        displayDate.setOnClickListener(new View.OnClickListener(){
+        display.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
 
-                textview.setText("Change Date: "+getCurrentDate());
+                textview1.setText("Change Date: "+getCurrentDate());
             }
 
         });
@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public String getCurrentDate(){
         StringBuilder builder=new StringBuilder();;
-        builder.append((pick.getMonth() + 1)+"/");//month is 0 based
-        builder.append(pick.getDayOfMonth()+"/");
-        builder.append(pick.getYear());
+        builder.append((picker.getMonth() + 1)+"/");//month is 0 based
+        builder.append(picker.getDayOfMonth()+"/");
+        builder.append(picker.getYear());
         return builder.toString();
     }
 
